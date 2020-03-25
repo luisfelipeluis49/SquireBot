@@ -1,0 +1,16 @@
+{
+  "name": "21dices",
+  "version": "0.1.0",
+  "description": "Bot para auxiliar a jogar RPG pelo discord, gerando rolagens, espólio e fichas",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["RPG", "d20", "bot", "Discord"],
+  "author": "luisfelipeluis49",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.0.2",
+    "save": "^2.4.0"
+  }
+}
