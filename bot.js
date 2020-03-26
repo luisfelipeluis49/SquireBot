@@ -209,6 +209,58 @@ client.on("message", async message => {
         loot.edit(`The player[s] founded a${item} item`);
     }
   }
+
+  if(comando === "gracemewithaname"){
+    const firstFix = ['Adri','Eb','Del','Mar','Kris','Gun','Per','Ive','Had','Sar','Val','Lesh','Try','Gar','Wel','Jil','Pa','Os','Dum','Hel','Ivo','Ol','Cha','Yu','Ak','Leu','Mor','Ea','Ne','Phe'];
+    const secondFix = ['be','erk','gran','da','ga','dred','an','mo','eli','lynn','si','nai','ton','bo','dal','ena','ela','tia','an','chen','ang','la','chro','non','ke','cis','bry','is','eta','ka'];
+    const thirdFix = ['seis','ch','mon','sk','nt','ump','ddo','ryn','ock','thi','xius','jir','sfr','treg','hyu'];
+    const fourthFix = ['sik','grim','hek','vol','liss','vol','in','id','men','ing','dal','dd','ra','rey','tra'];
+
+    var nameThinker = await message.channel.send("let me think...");
+    var howManyFix = Math.floor(Math.random() * (13 - 1)) + 1;
+    var name;
+    for(var i = 0; i < howManyFix; i++){
+        if(i === 0){
+            name = firstFix[Math.floor(Math.random() * (31 - 1))]
+        } else if(i === 3){
+            name = name + secondFix[Math.floor(Math.random() * (31 - 1))]
+        } else if(i === 8){
+            name = name + thirdFix[Math.floor(Math.random() * (16 - 1))]
+        } else if(i === 10){
+            name = name + fourthFix[Math.floor(Math.random() * (16 - 1))]
+        }
+    }
+    nameThinker.edit(`I think ${name} would be nice`);
+  }
+
+  if(comando === "somequest"){
+    const firstQuest = ['Adri','Eb','Del','Mar','Kris','Gun','Per','Ive','Had','Sar','Val','Lesh','Try','Gar','Wel','Jil','Pa','Os','Dum','Hel','Ivo','Ol','Cha','Yu','Ak','Leu','Mor','Ea','Ne','Phe'];
+    const secondQuest = ['be','erk','gran','da','ga','dred','an','mo','eli','lynn','si','nai','ton','bo','dal','ena','ela','tia','an','chen','ang','la','chro','non','ke','cis','bry','is','eta','ka'];
+    const thirdQuest = ['seis','ch','mon','sk','nt','ump','ddo','ryn','ock','thi','xius','jir','sfr','treg','hyu'];
+    const fourthQuest = ['sik','grim','hek','vol','liss','vol','in','id','men','ing','dal','dd','ra','rey','tra'];
+    const foundedQuest = Math.floor(Math.random() * (3 - 1)) + 1;
+
+    var questThinker = await message.channel.send("searching for some quest...");
+    wait(4000);
+    var howManyNeeds = Math.floor(Math.random() * (13 - 1)) + 1;
+    var quest;
+    if(foundedQuest === 2){
+        for(var i = 0; i < howManyNeeds; i++){
+            if(i === 0){
+                quest = firstQuest[Math.floor(Math.random() * (31 - 1))];
+            } else if(i === 3){
+                quest = quest + secondQuest[Math.floor(Math.random() * (31 - 1))];
+            } else if(i === 8){
+                quest = quest + thirdQuest[Math.floor(Math.random() * (16 - 1))];
+            } else if(i === 10){
+                quest = quest + fourthQuest[Math.floor(Math.random() * (16 - 1))];
+            }
+        }
+        questThinker.edit(`I founded this: ${quest}`);
+    } else{
+        questThinker.edit(`I didn't founded anything sir, maybe if i look around again...`);
+    }
+  }
   
 });
 
@@ -238,3 +290,11 @@ client.login(config.token);
         }
     loot.edit(`The player[s] founded a${item} item`);
 }*/
+
+function wait(ms)
+{
+var d = new Date();
+var d2 = null;
+do { d2 = new Date(); }
+while(d2-d < ms);
+}
